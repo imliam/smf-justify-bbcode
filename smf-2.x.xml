@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE modification SYSTEM "http://www.simplemachines.org/xml/modification">
+<modification xmlns="http://www.simplemachines.org/xml/modification" xmlns:smf="http://www.simplemachines.org/">
+	<name>[BBCode] Justify</name>
+	<id>LiamHammett:Justify</id>
+	<version>1.0</version>
+	<file name="$sourcedir/Subs.php">
+		<operation>
+			<search position="after"><![CDATA[	array(
+				'tag' => 'right',
+				'before' => '<div style="text-align: right;">',
+				'after' => '</div>',
+				'block_level' => true,
+			),
+]]></search>
+			<add><![CDATA[array(
+				'tag' => 'justify',
+				'before' => '<div align="justify">',
+				'after' => '</div>',
+				'block_level' => true,
+			),
+]]></add>
+		</operation>
+</file>
+<file name="$sourcedir/Subs-Editor.php">
+	<operation>
+		<search position="after"><![CDATA['left' => array('code' => 'right', 'after' => '[right]', 'after' => '[/right]', 'description' => $txt['right_align']),]]></search>
+		<add><![CDATA[
+			'justify' => array('code' => 'justify', 'before' => '[justify]', 'after' => '[/justify]', 'description' => $txt['justify']),
+]]></add>
+	</operation>
+</file>
+
+<file name="$themedir/languages/Modifications.english.php">
+	<operation>
+		<search position="end" />
+			<add><![CDATA[
+$txt['justify'] = 'Justify';
+]]></add>
+	</operation>
+</file>
+</modification>
